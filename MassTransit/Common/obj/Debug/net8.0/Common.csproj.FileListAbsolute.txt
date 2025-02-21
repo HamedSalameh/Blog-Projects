@@ -1,0 +1,11 @@
+C:\git\personal\blog-rmq-masstransit\Common\bin\Debug\net8.0\Common.deps.json
+C:\git\personal\blog-rmq-masstransit\Common\bin\Debug\net8.0\Common.dll
+C:\git\personal\blog-rmq-masstransit\Common\bin\Debug\net8.0\Common.pdb
+C:\git\personal\blog-rmq-masstransit\Common\obj\Debug\net8.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\git\personal\blog-rmq-masstransit\Common\obj\Debug\net8.0\Common.AssemblyInfoInputs.cache
+C:\git\personal\blog-rmq-masstransit\Common\obj\Debug\net8.0\Common.AssemblyInfo.cs
+C:\git\personal\blog-rmq-masstransit\Common\obj\Debug\net8.0\Common.csproj.CoreCompileInputs.cache
+C:\git\personal\blog-rmq-masstransit\Common\obj\Debug\net8.0\Common.dll
+C:\git\personal\blog-rmq-masstransit\Common\obj\Debug\net8.0\refint\Common.dll
+C:\git\personal\blog-rmq-masstransit\Common\obj\Debug\net8.0\Common.pdb
+C:\git\personal\blog-rmq-masstransit\Common\obj\Debug\net8.0\ref\Common.dll
