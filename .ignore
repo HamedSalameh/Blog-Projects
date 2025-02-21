@@ -1,0 +1,92 @@
+# Ignore Visual Studio 2022 specific files
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore build output directories
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.assets.json
+PackageReferences/
+NuGet.config
+NuGetScratch/
+*.nuspec
+
+# Ignore environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.envrc
+*.envrc
+
+# Ignore user secrets
+secrets.json
+secrets/
+
+# Ignore logs and debugging files
+*.log
+*.tlog
+*.dmp
+hs_err_pid*
+
+# Ignore JetBrains Rider / ReSharper
+.idea/
+*.sln.iml
+*.sln.DotSettings
+resharper.xml
+resharper/
+
+# Ignore AWS Cognito related cached credentials
+.aws/
+.aws-sam/
+.aws-lambda/
+
+# Ignore generated files
+Generated/
+ServiceFabricBackup/
+GeneratedCode/
+Coverage/
+*.generated.cs
+*.g.cs
+*.g.i.cs
+
+# Ignore test results
+TestResults/
+*.trx
+*.coverage
+*.testsettings
+*.vsmdi
+*.vsp
+
+# Ignore local tooling files
+*.swp
+*.bak
+*.tmp
+*.lock
+*.cache
+*.pyc
+*.pyo
+*.pyd
+*.DS_Store
+*.orig
+Thumbs.db
+Desktop.ini

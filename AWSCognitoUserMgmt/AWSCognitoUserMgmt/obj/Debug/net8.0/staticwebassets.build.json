@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "5bP52/WeI6gggXeEGJmxnhsn4/uqhyK/QyRA78v/gpg=",
+  "Source": "AWSCognitoUserMgmt",
+  "BasePath": "_content/AWSCognitoUserMgmt",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
