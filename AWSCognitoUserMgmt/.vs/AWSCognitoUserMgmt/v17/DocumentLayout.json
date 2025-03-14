@@ -7,16 +7,36 @@
       "RelativeMoniker": "D:0:0:{D2E577FC-EA61-B717-9FDC-EB15CDEAEBFD}|AWSCognitoUserMgmt\\AWSCognitoUserMgmt.csproj|solutionrelative:awscognitousermgmt\\services\\cognitoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D2E577FC-EA61-B717-9FDC-EB15CDEAEBFD}|AWSCognitoUserMgmt\\AWSCognitoUserMgmt.csproj|c:\\git\\personal\\blog-projects\\awscognitousermgmt\\awscognitousermgmt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D2E577FC-EA61-B717-9FDC-EB15CDEAEBFD}|AWSCognitoUserMgmt\\AWSCognitoUserMgmt.csproj|solutionrelative:awscognitousermgmt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{31DB4CCA-674F-4BCD-99A6-F05163F4E710}|AWSCognitoUserMgmtTests\\AWSCognitoUserMgmtTests.csproj|c:\\git\\personal\\blog-projects\\awscognitousermgmt\\awscognitousermgmttests\\cognitoserviceintegrationtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31DB4CCA-674F-4BCD-99A6-F05163F4E710}|AWSCognitoUserMgmtTests\\AWSCognitoUserMgmtTests.csproj|solutionrelative:awscognitousermgmttests\\cognitoserviceintegrationtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31DB4CCA-674F-4BCD-99A6-F05163F4E710}|AWSCognitoUserMgmtTests\\AWSCognitoUserMgmtTests.csproj|c:\\git\\personal\\blog-projects\\awscognitousermgmt\\awscognitousermgmttests\\cognitoservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{31DB4CCA-674F-4BCD-99A6-F05163F4E710}|AWSCognitoUserMgmtTests\\AWSCognitoUserMgmtTests.csproj|solutionrelative:awscognitousermgmttests\\cognitoservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{31DB4CCA-674F-4BCD-99A6-F05163F4E710}|AWSCognitoUserMgmtTests\\AWSCognitoUserMgmtTests.csproj|c:\\git\\personal\\blog-projects\\awscognitousermgmt\\awscognitousermgmttests\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{31DB4CCA-674F-4BCD-99A6-F05163F4E710}|AWSCognitoUserMgmtTests\\AWSCognitoUserMgmtTests.csproj|solutionrelative:awscognitousermgmttests\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{31DB4CCA-674F-4BCD-99A6-F05163F4E710}|AWSCognitoUserMgmtTests\\AWSCognitoUserMgmtTests.csproj|c:\\git\\personal\\blog-projects\\awscognitousermgmt\\awscognitousermgmttests\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{31DB4CCA-674F-4BCD-99A6-F05163F4E710}|AWSCognitoUserMgmtTests\\AWSCognitoUserMgmtTests.csproj|solutionrelative:awscognitousermgmttests\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E577FC-EA61-B717-9FDC-EB15CDEAEBFD}|AWSCognitoUserMgmt\\AWSCognitoUserMgmt.csproj|c:\\git\\personal\\blog-projects\\awscognitousermgmt\\awscognitousermgmt\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D2E577FC-EA61-B717-9FDC-EB15CDEAEBFD}|AWSCognitoUserMgmt\\AWSCognitoUserMgmt.csproj|solutionrelative:awscognitousermgmt\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E577FC-EA61-B717-9FDC-EB15CDEAEBFD}|AWSCognitoUserMgmt\\AWSCognitoUserMgmt.csproj|c:\\git\\personal\\blog-projects\\awscognitousermgmt\\awscognitousermgmt\\services\\icognitoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2E577FC-EA61-B717-9FDC-EB15CDEAEBFD}|AWSCognitoUserMgmt\\AWSCognitoUserMgmt.csproj|solutionrelative:awscognitousermgmt\\services\\icognitoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E577FC-EA61-B717-9FDC-EB15CDEAEBFD}|AWSCognitoUserMgmt\\AWSCognitoUserMgmt.csproj|c:\\git\\personal\\blog-projects\\awscognitousermgmt\\awscognitousermgmt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2E577FC-EA61-B717-9FDC-EB15CDEAEBFD}|AWSCognitoUserMgmt\\AWSCognitoUserMgmt.csproj|solutionrelative:awscognitousermgmt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E577FC-EA61-B717-9FDC-EB15CDEAEBFD}|AWSCognitoUserMgmt\\AWSCognitoUserMgmt.csproj|c:\\git\\personal\\blog-projects\\awscognitousermgmt\\awscognitousermgmt\\configuration\\identityproviderconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2E577FC-EA61-B717-9FDC-EB15CDEAEBFD}|AWSCognitoUserMgmt\\AWSCognitoUserMgmt.csproj|solutionrelative:awscognitousermgmt\\configuration\\identityproviderconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31DB4CCA-674F-4BCD-99A6-F05163F4E710}|AWSCognitoUserMgmtTests\\AWSCognitoUserMgmtTests.csproj|c:\\git\\personal\\blog-projects\\awscognitousermgmt\\awscognitousermgmttests\\cognitoservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31DB4CCA-674F-4BCD-99A6-F05163F4E710}|AWSCognitoUserMgmtTests\\AWSCognitoUserMgmtTests.csproj|solutionrelative:awscognitousermgmttests\\cognitoservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,21 +46,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 10,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CognitoService.cs",
-              "DocumentMoniker": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\Services\\CognitoService.cs",
-              "RelativeDocumentMoniker": "AWSCognitoUserMgmt\\Services\\CognitoService.cs",
-              "ToolTip": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\Services\\CognitoService.cs",
-              "RelativeToolTip": "AWSCognitoUserMgmt\\Services\\CognitoService.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAmwIgAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T06:31:17.488Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
@@ -63,42 +70,114 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\appsettings.json",
+              "RelativeDocumentMoniker": "AWSCognitoUserMgmt\\appsettings.json",
+              "ToolTip": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\appsettings.json",
+              "RelativeToolTip": "AWSCognitoUserMgmt\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-07T04:42:19.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IdentityProviderConfiguration.cs",
+              "DocumentMoniker": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\Configuration\\IdentityProviderConfiguration.cs",
+              "RelativeDocumentMoniker": "AWSCognitoUserMgmt\\Configuration\\IdentityProviderConfiguration.cs",
+              "ToolTip": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\Configuration\\IdentityProviderConfiguration.cs",
+              "RelativeToolTip": "AWSCognitoUserMgmt\\Configuration\\IdentityProviderConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T04:40:59.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmtTests\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "AWSCognitoUserMgmtTests\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmtTests\\Properties\\launchSettings.json",
+              "RelativeToolTip": "AWSCognitoUserMgmtTests\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-07T04:40:13.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ICognitoService.cs",
+              "DocumentMoniker": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\Services\\ICognitoService.cs",
+              "RelativeDocumentMoniker": "AWSCognitoUserMgmt\\Services\\ICognitoService.cs",
+              "ToolTip": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\Services\\ICognitoService.cs",
+              "RelativeToolTip": "AWSCognitoUserMgmt\\Services\\ICognitoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T04:31:22.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CognitoServiceIntegrationTests.cs",
+              "DocumentMoniker": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmtTests\\CognitoServiceIntegrationTests.cs",
+              "RelativeDocumentMoniker": "AWSCognitoUserMgmtTests\\CognitoServiceIntegrationTests.cs",
+              "ToolTip": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmtTests\\CognitoServiceIntegrationTests.cs",
+              "RelativeToolTip": "AWSCognitoUserMgmtTests\\CognitoServiceIntegrationTests.cs",
+              "ViewState": "AgIAAIkBAAAAAAAAAAAQwKcBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T04:10:38.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CognitoService.cs",
+              "DocumentMoniker": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\Services\\CognitoService.cs",
+              "RelativeDocumentMoniker": "AWSCognitoUserMgmt\\Services\\CognitoService.cs",
+              "ToolTip": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\Services\\CognitoService.cs",
+              "RelativeToolTip": "AWSCognitoUserMgmt\\Services\\CognitoService.cs",
+              "ViewState": "AgIAAMsBAAAAAAAAAAAzwCgCAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T06:31:17.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
               "Title": ".env",
               "DocumentMoniker": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmtTests\\.env",
               "RelativeDocumentMoniker": "AWSCognitoUserMgmtTests\\.env",
               "ToolTip": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmtTests\\.env",
               "RelativeToolTip": "AWSCognitoUserMgmtTests\\.env",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-02-21T06:23:04.709Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-21T06:23:04.709Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\Program.cs",
               "RelativeDocumentMoniker": "AWSCognitoUserMgmt\\Program.cs",
               "ToolTip": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmt\\Program.cs",
               "RelativeToolTip": "AWSCognitoUserMgmt\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T06:06:27.672Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-21T06:06:27.672Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "CognitoServiceTests.cs",
               "DocumentMoniker": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmtTests\\CognitoServiceTests.cs",
               "RelativeDocumentMoniker": "AWSCognitoUserMgmtTests\\CognitoServiceTests.cs",
               "ToolTip": "C:\\git\\personal\\Blog-Projects\\AWSCognitoUserMgmt\\AWSCognitoUserMgmtTests\\CognitoServiceTests.cs",
               "RelativeToolTip": "AWSCognitoUserMgmtTests\\CognitoServiceTests.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAWwFIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAAwIAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T06:05:32.186Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-21T06:05:32.186Z"
             }
           ]
         }

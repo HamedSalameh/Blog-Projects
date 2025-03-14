@@ -11,6 +11,7 @@ namespace AWSCognitoUserMgmt.IdentityProvider
         Task<DeleteGroupResponse> DeleteGroupAsync(string groupName);
         Task<AdminDeleteUserResponse> DeleteUserAsync(string username);
         Task<AdminDisableUserResponse> DisableUserAsync(string username);
+        Task<AdminSetUserMFAPreferenceResponse> EnableMFAForUserAsync(string username);
         Task<AdminGetUserResponse> GetUserAsync(string username);
         Task<ListUsersResponse> ListUsersAsync();
         Task<ListUsersResponse> ListUsersAsync(string email, string familyName);
@@ -18,6 +19,7 @@ namespace AWSCognitoUserMgmt.IdentityProvider
         Task<AdminRemoveUserFromGroupResponse> RemoveUserFromGroupAsync(string username, string groupName);
         Task<AdminResetUserPasswordResponse> ResetUserPasswordAsync(string username);
         Task<AdminSetUserPasswordResponse> SetUserPasswordAsync(string username, string password);
+        Task<AdminInitiateAuthResponse> SignInUserAsync(string username, string password);
         Task<AdminUpdateUserAttributesResponse> UpdateUserAttributesAsync(string username, Dictionary<string, string> attributes);
     }
 }

@@ -2,12 +2,15 @@
 using Amazon.CognitoIdentityProvider.Model;
 using AWSCognitoUserMgmt.IdentityProvider;
 using Microsoft.Extensions.Options;
+using System.Security.Cryptography;
+using System.Text;
 
 public class CognitoService : ICognitoService
 {
     private readonly IAmazonCognitoIdentityProvider _cognitoClient;
     private readonly string _userPoolId;
     private readonly string _clientId;
+    private readonly string _clientSecret;
     private readonly ILogger<CognitoService> _logger;
 
     public CognitoService(IAmazonCognitoIdentityProvider cognitoClient,
@@ -27,6 +30,7 @@ public class CognitoService : ICognitoService
 
         _userPoolId = config.PoolId;
         _clientId = config.ClientId;
+        _clientSecret = config.ClientSecret;
     }
 
     /// <summary>
@@ -454,5 +458,144 @@ public class CognitoService : ICognitoService
         }
     }
 
+    // Authentication
+
+    // Sign in user using credentials
+    public async Task<AdminInitiateAuthResponse> SignInUserAsync(string username, string password)
+    {
+        try
+        {
+            var request = new AdminInitiateAuthRequest
+            {
+                UserPoolId = _userPoolId,
+                ClientId = _clientId,
+                AuthFlow = AuthFlowType.ADMIN_NO_SRP_AUTH,
+                AuthParameters = new Dictionary<string, string>
+                {
+                    { "USERNAME", username },
+                    { "PASSWORD", password },
+                    // Secret hash is required for admin-initiated auth
+                    { "SECRET_HASH", GetSecretHash(username, _clientId, _clientSecret) }
+                }
+            };
+            var response = await _cognitoClient.AdminInitiateAuthAsync(request).ConfigureAwait(false);
+            _logger.LogInformation("User {Username} signed in successfully.", username);
+            return response;
+        }
+        catch (NotAuthorizedException ex)
+        {
+            _logger.LogWarning(ex, "Invalid credentials for user {Username}.", username);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Unexpected error while signing in user {Username}.", username);
+            throw;
+        }
+    }
+
+    public async Task<InitiateAuthResponse> SignInUserAsyncWithPasswordAuth(string username, string password)
+    {
+        var authRequest = new InitiateAuthRequest
+        {
+            AuthFlow = AuthFlowType.USER_PASSWORD_AUTH,
+            ClientId = _clientId,
+            AuthParameters = new Dictionary<string, string>
+            {
+                { "USERNAME", username },
+                { "PASSWORD", password },
+                { "SECRET_HASH", CalculateSecretHash(username) }
+            }
+        };
+
+        try
+        {
+            var authResponse = await _cognitoClient.InitiateAuthAsync(authRequest);
+            return authResponse;
+        }
+        catch (NotAuthorizedException)
+        {
+            Console.WriteLine("The username or password is incorrect.");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+            throw;
+        }
+    }
+
+    private string CalculateSecretHash(string username)
+    {
+        var key = Encoding.UTF8.GetBytes(_clientSecret);
+        using (var hmac = new HMACSHA256(key))
+        {
+            var message = Encoding.UTF8.GetBytes(username + _clientId);
+            var hash = hmac.ComputeHash(message);
+            return Convert.ToBase64String(hash);
+        }
+    }
+
+    private static string GetSecretHash(string username, string clientId, string clientSecret)
+    {
+        var secretBlock = username + clientId;
+        var keyBytes = Encoding.UTF8.GetBytes(clientSecret);
+        using (var hmac = new HMACSHA256(keyBytes))
+        {
+            var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(secretBlock));
+            return Convert.ToBase64String(hash);
+        }
+    }
+
+    // Enable MFA for user
+    public async Task<AdminSetUserMFAPreferenceResponse> EnableMFAForUserAsync(string username)
+    {
+        try
+        {
+            var request = new AdminSetUserMFAPreferenceRequest
+            {
+                UserPoolId = _userPoolId,
+                Username = username,
+                // set MFA preference to 'SOFTWARE_TOKEN_MFA'
+                SMSMfaSettings = new SMSMfaSettingsType { Enabled = false },
+                SoftwareTokenMfaSettings = new SoftwareTokenMfaSettingsType { Enabled = true, PreferredMfa = true }
+
+            };
+            var response = await _cognitoClient.AdminSetUserMFAPreferenceAsync(request).ConfigureAwait(false);
+            _logger.LogInformation("MFA enabled successfully for user {Username}.", username);
+            return response;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Unexpected error while enabling MFA for user {Username}.", username);
+            throw;
+        }
+    }
+
+    // Sign out user
+    public async Task<AdminUserGlobalSignOutResponse> SignOutUserAsync(string username)
+    {
+        try
+        {
+            var request = new AdminUserGlobalSignOutRequest
+            {
+                UserPoolId = _userPoolId,
+                Username = username
+            };
+            var response = await _cognitoClient.AdminUserGlobalSignOutAsync(request).ConfigureAwait(false);
+            _logger.LogInformation("User {Username} signed out successfully.", username);
+            return response;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Unexpected error while signing out user {Username}.", username);
+            throw;
+        }
+    }
+}
+
+internal class CognitoHelper
+{
     
+
 }

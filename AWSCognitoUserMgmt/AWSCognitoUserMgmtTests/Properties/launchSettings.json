@@ -1,11 +1,7 @@
 {
   "profiles": {
     "AWSCognitoUserMgmtTests": {
-      "commandName": "Project",
-      "environmentVariables": {
-        "AWS_COGNITO_POOL_ID": "us-east-1_ZOSwm0Yr4",
-        "AWS_COGNITO_CLIENT_ID": "1lc4k197gsghmla0u32t318hns"
-      }
+      "commandName": "Project"
     }
   }
 }

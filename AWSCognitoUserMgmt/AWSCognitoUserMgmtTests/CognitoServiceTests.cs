@@ -125,5 +125,6 @@ namespace AWSCognitoUserMgmtTests
                 client.AdminCreateUserAsync(It.IsAny<AdminCreateUserRequest>(), It.IsAny<CancellationToken>()),
                 Times.Once);
         }
+
     }
 }
