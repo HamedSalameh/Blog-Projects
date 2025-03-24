@@ -228,3 +228,4 @@ FakesAssemblies/
 *.opt
 
 AWSCognitoUserMgmt/AWSCognitoUserMgmt/obj/
+AWSCognitoUserMgmt/.vs
