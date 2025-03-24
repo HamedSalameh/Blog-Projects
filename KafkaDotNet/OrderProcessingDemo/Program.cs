@@ -1,5 +1,6 @@
 using Confluent.Kafka;
 using Microsoft.Extensions.Options;
+using OrderProcessingDemo;
 using OrderProcessingDemo.DTO;
 using OrderProcessingDemo.Endpoints.PlaceOrder;
 

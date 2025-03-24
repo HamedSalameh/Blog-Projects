@@ -1,5 +1,6 @@
 ﻿using Confluent.Kafka;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using OrderProcessingDemo.DTO;
 using Shared;
 using System.Text.Json;
@@ -21,7 +22,8 @@ namespace OrderProcessingDemo.Endpoints.PlaceOrder
         public static async Task<IResult> PlaceOrderAsync([FromBody] PlaceOrderRequest placeOrderRequest, 
             CancellationToken cancellationToken,
             ILoggerFactory loggerFactory,
-            IProducer<Null, string> producer)
+            IProducer<Null, string> producer,
+            IOptions<KafkaSettings> kafkaOptions)
         {
             ILogger logger = loggerFactory.CreateLogger("PlaceOrderEndpoint");
 
@@ -51,7 +53,7 @@ namespace OrderProcessingDemo.Endpoints.PlaceOrder
 
             var json = JsonSerializer.Serialize(orderPlaceEvent);
 
-            await producer.ProduceAsync(KafkaTopics.OrderPlaced, new Message<Null, string>
+            await producer.ProduceAsync(kafkaOptions.Value.OrderPlacedTopic, new Message<Null, string>
             {
                 Value = json
             }).ConfigureAwait(false);
