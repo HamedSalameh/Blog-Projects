@@ -1,4 +1,5 @@
 using Confluent.Kafka;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using Shared;
 using System.Text.Json;
@@ -10,6 +11,10 @@ public class Worker : BackgroundService
     private readonly ILogger<Worker> _logger;
     private readonly KafkaSettings _kafkaSettings;
     private IConsumer<Ignore, string>? _consumer;
+    private IProducer<Null, string>? _producer;
+
+    // Simulated store for idempotency check (use a persistent store in production)
+    private readonly MemoryCache _processedOrderCache = new(new MemoryCacheOptions());
 
     public Worker(ILogger<Worker> logger, IOptions<KafkaSettings> kafkaOptions)
     {
@@ -18,6 +23,26 @@ public class Worker : BackgroundService
     }
 
     public override Task StartAsync(CancellationToken cancellationToken)
+    {
+        InitializeComsuner();
+        InitializeProducer();
+
+        _logger.LogInformation("Kafka consumer started and subscribed to topic: {Topic}", _kafkaSettings.Topic);
+
+        return base.StartAsync(cancellationToken);
+    }
+
+    private void InitializeProducer()
+    {
+        var producerConfig = new ProducerConfig
+        {
+            BootstrapServers = _kafkaSettings.BootstrapServers
+        };
+
+        _producer = new ProducerBuilder<Null, string>(producerConfig).Build();
+    }
+
+    private void InitializeComsuner()
     {
         var config = new ConsumerConfig
         {
@@ -29,10 +54,6 @@ public class Worker : BackgroundService
 
         _consumer = new ConsumerBuilder<Ignore, string>(config).Build();
         _consumer.Subscribe(_kafkaSettings.Topic);
-
-        _logger.LogInformation("Kafka consumer started and subscribed to topic: {Topic}", _kafkaSettings.Topic);
-
-        return base.StartAsync(cancellationToken);
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -47,31 +68,38 @@ public class Worker : BackgroundService
                 if (result == null || string.IsNullOrWhiteSpace(result.Message?.Value))
                     continue;
 
-                var order = JsonSerializer.Deserialize<OrderPlacedEvent>(result.Message.Value);
-
+                OrderPlacedEvent? order = await DeserializeOrSendToDLQ(result.Message.Value, result, stoppingToken);
                 if (order == null)
                 {
-                    _logger.LogWarning("Received null or malformed order event");
+                    _logger.LogWarning("Invalid (empty) order message received. Skipping...");
+                    _consumer?.Commit(result);
+                    continue;
+                }
+
+                // Idempotency check
+                bool isDuplicate = _processedOrderCache.TryGetValue(order.OrderId, out _);
+                if (isDuplicate)
+                {
+                    _logger.LogInformation("Duplicate order skipped: {OrderId}", order.OrderId);
+                    _consumer?.Commit(result);
                     continue;
                 }
 
                 _logger.LogInformation("Order received: {OrderId} at {Timestamp}", order.OrderId, order.Timestamp);
+                await HandleOrder(order);
 
-                foreach (var item in order.Items)
-                {
-                    _logger.LogInformation(" - Product: {ProductId}, Quantity: {Quantity}", item.ProductId, item.Quantity);
-                    await Task.Delay(125);
-                    _logger.LogInformation("Order inventory updated: {OrderId}", order.OrderId);
+                // Mark as processed with expiration
+                _processedOrderCache.Set(order.OrderId, true, TimeSpan.FromHours(24));
 
-                }
+                _consumer?.Commit(result); // Commit offset after successful processing
             }
             catch (ConsumeException ex)
             {
                 _logger.LogError(ex, "Kafka consume error: {Reason}", ex.Error.Reason);
             }
-            catch (JsonException ex)
+            catch (OperationCanceledException) when (stoppingToken.IsCancellationRequested)
             {
-                _logger.LogError(ex, "Failed to deserialize Kafka message");
+                _logger.LogInformation("Cancellation requested. Exiting consume loop gracefully.");
             }
             catch (Exception ex)
             {
@@ -80,10 +108,51 @@ public class Worker : BackgroundService
         }
     }
 
-    public override void Dispose()
+    private async Task<OrderPlacedEvent?> DeserializeOrSendToDLQ(string messageValue, ConsumeResult<Ignore, string> result, CancellationToken token)
     {
-        _consumer?.Close(); // Ensures graceful shutdown
-        _consumer?.Dispose();
-        base.Dispose();
+        try
+        {
+            return JsonSerializer.Deserialize<OrderPlacedEvent>(messageValue);
+        }
+        catch (JsonException jsonEx)
+        {
+            _logger.LogError(jsonEx, "Failed to deserialize message. Sending to DLQ.");
+            _ = await _producer?.ProduceAsync("order-placed-dlq", new Message<Null, string>
+            {
+                Value = messageValue
+            }, token);
+
+            _consumer?.Commit(result);
+            return null;
+        }
+    }
+
+    private async Task HandleOrder(OrderPlacedEvent order)
+    {
+        _logger.LogInformation("Order received: {OrderId} at {Timestamp}", order.OrderId, order.Timestamp);
+
+        foreach (var item in order.Items)
+        {
+            _logger.LogInformation(" - Product: {ProductId}, Quantity: {Quantity}", item.ProductId, item.Quantity);
+            await Task.Delay(125);
+        }
+
+        _logger.LogInformation("Order inventory updated: {OrderId}", order.OrderId);
+    }
+
+    public override async Task StopAsync(CancellationToken cancellationToken)
+    {
+        if (_consumer != null)
+        {
+            _logger.LogInformation("Closing Kafka consumer...");
+            _consumer.Close();
+            _consumer.Dispose();
+            _producer?.Dispose();
+            _processedOrderCache.Dispose();
+
+            _logger.LogInformation("Kafka consumer closed.");
+        }
+
+        await base.StopAsync(cancellationToken);
     }
 }

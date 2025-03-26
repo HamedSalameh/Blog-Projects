@@ -20,10 +20,10 @@ namespace OrderProcessingDemo.Endpoints.PlaceOrder
         }
 
         public static async Task<IResult> PlaceOrderAsync([FromBody] PlaceOrderRequest placeOrderRequest, 
-            CancellationToken cancellationToken,
             ILoggerFactory loggerFactory,
             IProducer<Null, string> producer,
-            IOptions<KafkaSettings> kafkaOptions)
+            IOptions<KafkaSettings> kafkaOptions,
+            CancellationToken cancellationToken)
         {
             ILogger logger = loggerFactory.CreateLogger("PlaceOrderEndpoint");
 
@@ -56,7 +56,7 @@ namespace OrderProcessingDemo.Endpoints.PlaceOrder
             await producer.ProduceAsync(kafkaOptions.Value.OrderPlacedTopic, new Message<Null, string>
             {
                 Value = json
-            }).ConfigureAwait(false);
+            }, cancellationToken).ConfigureAwait(false);
 
             logger.LogInformation("Order placed event sent to Kafka");
 

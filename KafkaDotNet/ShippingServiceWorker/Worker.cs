@@ -55,15 +55,7 @@ namespace ShippingServiceWorker
                         continue;
                     }
 
-                    _logger.LogInformation("Order received: {OrderId} at {Timestamp}", order.OrderId, order.Timestamp);
-                    foreach (var item in order.Items)
-                    {
-                        _logger.LogInformation(" - Product: {ProductId}, Quantity: {Quantity}", item.ProductId, item.Quantity);
-                    }
-
-                    await Task.Delay(500); // Simulate processing time
-                    _logger.LogInformation("Order shipping prepared: {OrderId}", order.OrderId);
-
+                    await handleOrderShipping(order);
 
                 }
                 catch (ConsumeException ex)
@@ -79,6 +71,30 @@ namespace ShippingServiceWorker
                     _logger.LogError(ex, "Unexpected error processing Kafka message");
                 }
             }
+        }
+
+        public override async Task StopAsync(CancellationToken cancellationToken)
+        {
+            if (_consumer != null)
+            {
+                _logger.LogInformation("Closing Kafka consumer...");
+                _consumer.Close();
+                _consumer.Dispose();
+            }
+
+            await base.StopAsync(cancellationToken);
+        }
+
+        private async Task handleOrderShipping(OrderPlacedEvent order)
+        {
+            _logger.LogInformation("Order received: {OrderId} at {Timestamp}", order.OrderId, order.Timestamp);
+            foreach (var item in order.Items)
+            {
+                _logger.LogInformation(" - Product: {ProductId}, Quantity: {Quantity}", item.ProductId, item.Quantity);
+            }
+
+            await Task.Delay(500); // Simulate processing time
+            _logger.LogInformation("Order shipping prepared: {OrderId}", order.OrderId);
         }
     }
 }
