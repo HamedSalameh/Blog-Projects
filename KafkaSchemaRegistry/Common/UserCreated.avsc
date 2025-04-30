@@ -1,0 +1,19 @@
+﻿{
+  "namespace": "KafkaSchemas",
+  "type": "record",
+  "name": "UserCreated",
+  "fields": [
+    {
+      "name": "UserId",
+      "type": "string"
+    },
+    {
+      "name": "UserName",
+      "type": "string"
+    },
+    {
+      "name": "Email",
+      "type": "string"
+    }
+  ]
+}

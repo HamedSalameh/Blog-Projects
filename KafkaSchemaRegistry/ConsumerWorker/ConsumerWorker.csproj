@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>dotnet-ConsumerWorker-19aa52e7-5dae-4505-9d6f-6b2c6739f894</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Confluent.Kafka" Version="2.10.0" />
+		<PackageReference Include="Confluent.SchemaRegistry.Serdes.Avro" Version="2.10.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
+		<PackageReference Include="Confluent.Kafka" Version="2.10.0" />
+		<PackageReference Include="Confluent.SchemaRegistry" Version="2.10.0" />
+		<PackageReference Include="Polly" Version="8.5.2" />
+	
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Common\Common.csproj" />
+	</ItemGroup>
+</Project>
